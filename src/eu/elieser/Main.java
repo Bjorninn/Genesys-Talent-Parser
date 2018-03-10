@@ -14,7 +14,7 @@ public class Main
     public static void main(String[] args)
     {
         ReadWriteTextFileJDK7 reader = new ReadWriteTextFileJDK7();
-        List<String> textFile = reader.readTextFile("data/Talents.tsv");
+        List<String> textFile = reader.readTextFile("data/Genesys Talents.tsv");
 
         CsvParser parser = new CsvParser();
         Talents talents = parser.Parse(textFile);

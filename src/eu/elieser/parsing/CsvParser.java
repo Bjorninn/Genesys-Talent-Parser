@@ -49,6 +49,11 @@ public class CsvParser
 
             String ranked = split[3].replace("Ranked:", "").trim().toLowerCase();
 
+            if (talent.getName().equals("Finesse"))
+            {
+                ranked = "no";
+            }
+
             if (ranked.equals("no"))
             {
                 talent.setRanked(false);
@@ -59,7 +64,7 @@ public class CsvParser
             }
             else
             {
-                throw new IllegalArgumentException("Got " + split[3] + " for " + talent.getName());
+                throw new IllegalArgumentException("Got " + ranked + " for " + talent.getName());
             }
 
             talent.setDescription(split[4].trim());
@@ -97,6 +102,7 @@ public class CsvParser
             // Prerequisite parsing
             if (talent.getDescription().contains("must have purchased"))
             {
+                talent.setDescription(talent.getDescription().replace("Talent to benefit from this talent.", "talent to benefit from this talent."));
 
                 String desc = talent.getDescription().replace(pre, "");
                 int index = desc.indexOf(post);
