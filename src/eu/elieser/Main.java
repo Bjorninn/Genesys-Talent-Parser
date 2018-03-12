@@ -22,7 +22,7 @@ public class Main
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String json = gson.toJson(talents, Talents.class);
 
-        reader.write(json, "data/Talents");
+        reader.write(json, "data/genesys-talents");
 
 
     }

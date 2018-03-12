@@ -69,7 +69,8 @@ public class CsvParser
 
             talent.setDescription(split[4].trim());
 
-            String source = split[5].replace("Source:", "").replace("Source:", "").trim();
+            String source = split[5].replace("Source:", "").replace("Sources:", "").trim();
+            System.out.println(source);
             String[] sources = source.split(",");
 
             for (int i = 0; i < sources.length; i++)
