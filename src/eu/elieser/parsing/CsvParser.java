@@ -41,7 +41,7 @@ public class CsvParser
             Talent talent = new Talent();
             talent.setId(id);
             talent.setName(split[0].trim());
-
+            Log.d(talent.getName());
             String tier = split[1].replace("Tier:", "").trim();
 
             talent.setTier(Integer.valueOf(tier));
@@ -70,7 +70,7 @@ public class CsvParser
             talent.setDescription(split[4].trim());
 
             String source = split[5].replace("Source:", "").replace("Sources:", "").trim();
-            System.out.println(source);
+
             String[] sources = source.split(",");
 
             for (int i = 0; i < sources.length; i++)
@@ -108,7 +108,7 @@ public class CsvParser
                 String desc = talent.getDescription().replace(pre, "");
                 int index = desc.indexOf(post);
                 String rname = desc.substring(0, index).trim();
-
+                Log.d("Te: " + rname);
                 Talent rTalent = talentMap.get(rname);
                 talent.setRequirement(rTalent.getId());
             }
