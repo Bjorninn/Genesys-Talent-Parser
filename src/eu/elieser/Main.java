@@ -14,7 +14,7 @@ public class Main
     public static void main(String[] args)
     {
         ReadWriteTextFileJDK7 reader = new ReadWriteTextFileJDK7();
-        List<String> textFile = reader.readTextFile("data/Genesys Talents Expanded 4_1.tsv");
+        List<String> textFile = reader.readTextFile("data/Genesys Talents Expanded 4_2.tsv");
 
         CsvParser parser = new CsvParser();
         Talents talents = parser.Parse(textFile);
@@ -23,7 +23,5 @@ public class Main
         String json = gson.toJson(talents, Talents.class);
 
         reader.write(json, "data/genesys-talents");
-
-
     }
 }

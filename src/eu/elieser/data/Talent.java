@@ -42,6 +42,9 @@ public class Talent
     @SerializedName("requirement")
     @Expose
     private Integer requirement = 0;
+    @SerializedName("depreciated")
+    @Expose
+    private String depreciated;
 
     public Integer getId()
     {
@@ -156,5 +159,15 @@ public class Talent
     public void setSubActivation(String subActivation)
     {
         this.subActivation = subActivation;
+    }
+
+    public String getDepreciated()
+    {
+        return depreciated;
+    }
+
+    public void setDepreciated(String depreciated)
+    {
+        this.depreciated = depreciated;
     }
 }

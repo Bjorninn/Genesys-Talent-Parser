@@ -79,20 +79,28 @@ public class CsvParser
             }
 
             talent.setSource(Arrays.asList(sources));
-            talent.setFrom(split[6]);
+            talent.setFrom(split[6].trim());
+
+            if (split.length == 8)
+            {
+                talent.setDepreciated(split[7].trim().toLowerCase());
+            }
+            else
+            {
+                talent.setDepreciated(null);
+            }
+
 
             talentList.add(talent);
         }
 
         // Parsing based on data
-
         Map<String, Talent> talentMap = new HashMap<String, Talent>();
         for (Talent t :
                 talentList)
         {
             talentMap.put(t.getName(), t);
         }
-
 
         String pre = "Your character must have purchased the ";
         String post = " talent to benefit from this talent.";
